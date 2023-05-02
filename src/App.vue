@@ -1,12 +1,16 @@
 <template>
-  <div>
-    <div class="container py-5">as</div>
-    ciao
+  <div class="container">
+    <Projects />
   </div>
 </template>
 
 <script>
-export default {};
+import Projects from "./components/Projects.vue";
+export default {
+  components: {
+    Projects,
+  },
+};
 </script>
 
 <style lang="scss">
