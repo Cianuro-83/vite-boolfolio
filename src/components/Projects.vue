@@ -99,4 +99,9 @@ export default {
 
 <style lang="scss" scoped>
 @use "../style/partials//variables" as *;
+.pagination {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
 </style>
