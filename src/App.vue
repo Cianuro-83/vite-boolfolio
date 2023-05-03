@@ -1,15 +1,13 @@
 <template>
-  <div class="container">
-    <Projects />
-  </div>
+  <main>
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
-import Projects from "./components/Projects.vue";
+import NavBar from "./components/NavBar.vue";
 export default {
-  components: {
-    Projects,
-  },
+  components: {},
 };
 </script>
 

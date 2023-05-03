@@ -14,7 +14,12 @@
             <p class="mt-5 fw-bolder">DESCRIZIONE:</p>
             <p>{{ project.description }}</p>
           </div>
-          <p class="mt-5 fw-bolder">TECNOLOGIE USATE:</p>
+          <p
+            class="mt-5 fw-bolder"
+            v-if="project.technologies && project.technologies.length > 0"
+          >
+            TECNOLOGIE USATE:
+          </p>
           <ul
             class="tech-list"
             v-if="project.technologies && project.technologies.length > 0"
