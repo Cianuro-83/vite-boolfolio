@@ -6,7 +6,7 @@
           <h3 class="card-title text-center fw-bold text-danger">
             {{ project.title }}
           </h3>
-          <h5 class="card-subtitle mb-2 text-body-secondary">
+          <h5 class="card-subtitle mb-2 text-body-secondary mt-5">
             <span class="fw-bolder">TIPOLOGIA: </span>
             <span>{{ project.type ? project.type.name : "---" }}</span>
           </h5>
@@ -14,7 +14,7 @@
             <p class="mt-5 fw-bolder">DESCRIZIONE:</p>
             <p>{{ project.description }}</p>
           </div>
-          <p class="mt-4 fw-bolder">TECNOLOGIE USATE:</p>
+          <p class="mt-5 fw-bolder">TECNOLOGIE USATE:</p>
           <ul
             class="tech-list"
             v-if="project.technologies && project.technologies.length > 0"
@@ -77,10 +77,8 @@ export default {
 }
 
 .project-card {
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
 }
 
 .description {

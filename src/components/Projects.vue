@@ -1,24 +1,26 @@
 <template>
   <div>
-    <div class="container my-5 projects">
+    <div class="container my-3 projects">
       <h1 class="text-uppercase text-center fw-bolder">i miei progetti</h1>
-      <ProjectCard
-        v-for="project in projects"
-        :key="project.id"
-        :project="project"
-        class="prova"
-      />
+      <div class="scb">
+        <ProjectCard
+          v-for="project in projects"
+          :key="project.id"
+          :project="project"
+        />
+      </div>
     </div>
-
-    <ul class="pagination">
-      <li
-        :class="[link.active ? 'active' : '', 'page-link']"
-        v-for="link in links"
-        @click="fetchProjectsByUrl(link.url)"
-        :key="link.label"
-        v-html="link.label"
-      ></li>
-    </ul>
+    <div>
+      <ul class="pagination">
+        <li
+          :class="[link.active ? 'active' : '', 'page-link']"
+          v-for="link in links"
+          @click="fetchProjectsByUrl(link.url)"
+          :key="link.label"
+          v-html="link.label"
+        ></li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -106,7 +108,9 @@ export default {
   display: flex;
   justify-content: center;
 }
-.prova {
-  background-color: red;
+.scb {
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 </style>
