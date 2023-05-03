@@ -35,7 +35,11 @@
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link text-black text-uppercase" href="#">chi sono</a>
+            <router-link
+              :to="{ name: 'about-me' }"
+              class="nav-link text-black text-uppercase"
+              >chi sono</router-link
+            >
           </li>
         </ul>
       </div>
