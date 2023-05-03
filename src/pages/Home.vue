@@ -1,8 +1,8 @@
 <template>
   <DefaultLayout>
     <div>
-      <div class="container">
-        <h1>Cianuros' Home</h1>
+      <div class="container scb">
+        <img src="/img/logo.svg" alt="" />
       </div>
     </div>
   </DefaultLayout>
@@ -44,4 +44,10 @@ export default {
 
 <style lang="scss" scoped>
 @use "../style/partials//variables" as *;
+.scb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
 </style>
