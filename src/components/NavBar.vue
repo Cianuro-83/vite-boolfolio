@@ -3,8 +3,9 @@
     <div class="container-fluid">
       <router-link
         :to="{ name: 'home' }"
-        class="navbar-brand text-black fw-bolder text-uppercase"
-        >cianuro's projects</router-link
+        class="d-flex align-items-center navbar-brand text-black fw-bolder text-uppercase"
+        ><img src="/img/logo.svg" alt="" class="logo me-1" /> cianuro's
+        projects</router-link
       >
       <button
         class="navbar-toggler"
@@ -19,13 +20,13 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link
               :to="{ name: 'home' }"
               class="nav-link text-black text-uppercase"
               >home</router-link
             >
-          </li>
+          </li> -->
           <li class="nav-item">
             <router-link
               :to="{ name: 'portfolio' }"
@@ -76,4 +77,7 @@ export default {
 
 <style lang="scss" scoped>
 @use "../style/partials//variables" as *;
+.logo {
+  width: 8%;
+}
 </style>
