@@ -1,10 +1,12 @@
 <template>
   <div>
     <div class="container my-5 projects">
+      <h1 class="text-uppercase text-center fw-bolder">i miei progetti</h1>
       <ProjectCard
         v-for="project in projects"
         :key="project.id"
         :project="project"
+        class="prova"
       />
     </div>
 
@@ -55,7 +57,7 @@ export default {
   methods: {
     fetchProjects(page) {
       axios
-        .get("http://127.0.0.1:8001/api/projects", {
+        .get("http://127.0.0.1:8000/api/projects", {
           params: {
             page: page,
           },
@@ -103,5 +105,8 @@ export default {
   cursor: pointer;
   display: flex;
   justify-content: center;
+}
+.prova {
+  background-color: red;
 }
 </style>
