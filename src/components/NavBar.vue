@@ -4,7 +4,7 @@
       <router-link
         :to="{ name: 'home' }"
         class="d-flex align-items-center navbar-brand text-black fw-bolder text-uppercase"
-        ><img src="/img/logo.svg" alt="" class="logo me-1" /> cianuro's
+        ><img src="/img/logo.svg" alt="logo" class="logo me-1" /> cianuro's
         projects</router-link
       >
       <button
