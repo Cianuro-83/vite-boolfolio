@@ -1,6 +1,6 @@
 <template>
   <DefaultLayaout>
-    <template v-if="project">
+    <template v-if="loading === false">
       <div class="container">
         <h1 class="text-center text-uppercase fw-semibold my-5 text-info">
           {{ project.title }}
@@ -25,16 +25,81 @@
       <div class="container py-4">
         <div class="scb" v-html="project.description"></div>
       </div>
+
+      <div class="container" v-if="relatedProjects.length > 0">
+        <ul class="poi">
+          <li v-for="related in relatedProjects" :key="related.id">
+            <ProjectCard :project="related" class:="io"/>
+          </li>
+        </ul>
+      </div>
     </template>
+    <div v-else class="load">
+      <div>
+        <div class="spinner-grow text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      Loading...
+      <div>
+        <div class="spinner-grow text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-secondary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-danger" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-warning" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-info" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-light" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="spinner-grow text-dark" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
   </DefaultLayaout>
 </template>
 
 <script>
 import DefaultLayaout from "../layouts/Default.vue";
 import axios from "axios";
+import ProjectCard from "../components/ProjectCard.vue";
 export default {
   components: {
     DefaultLayaout,
+    ProjectCard,
     // **************************
     // FINE COMPONETS
   },
@@ -43,12 +108,19 @@ export default {
   data() {
     return {
       project: null,
+      loading: true,
       // **************************
       // FINE DATA E RETURN &
     };
   },
   // **************************
   computed: {
+    relatedProjects() {
+      if (this.project.relatedProjects) {
+        return this.project.relatedProjects;
+      }
+      return [];
+    },
     // **************************
     // FINE COMPUTED
   },
@@ -59,7 +131,8 @@ export default {
   },
   // **************************
   methods: {
-    fechProjects(slug) {
+    fetchProjects(slug) {
+      this.loading = true;
       axios
         .get(`http://127.0.0.1:8000/api/projects/${slug}`)
         .then((res) => {
@@ -74,6 +147,9 @@ export default {
         .catch((err) => {
           console.log(err);
           //   this.$router.replace({ name: '404' })
+        })
+        .finally(() => {
+          this.loading = false;
         });
     },
     // **************************
@@ -81,7 +157,12 @@ export default {
   },
   // **************************
   created() {
-    this.fechProjects(this.slug);
+    this.fetchProjects(this.slug);
+  },
+  beforeRouteUpdate(to, from) {
+    const newSlug = to.params.slug;
+
+    this.fetchProjects(newSlug);
   },
 };
 </script>
@@ -90,5 +171,19 @@ export default {
 @use "../style/partials//variables" as *;
 .scb {
   text-align: justify;
+}
+
+.poi {
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+.load {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 50px;
 }
 </style>
