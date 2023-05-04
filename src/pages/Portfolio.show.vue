@@ -9,7 +9,7 @@
           <span>Tipologia del progetto: </span>
           <span class="badge text-bg-warning">{{ project.type.name }}</span>
         </p>
-        <div>
+        <div v-if="project.technologies && project.technologies.length > 0">
           <span class="me-2">Tecnologie utilizzate:</span>
 
           <span v-for="tech in project.technologies" :key="tech.slug">
