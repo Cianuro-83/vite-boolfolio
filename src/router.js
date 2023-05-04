@@ -25,6 +25,7 @@ const router = createRouter({
       path: "/portfolio/:slug",
       name: "portfolio.show",
       component: PortfolioShow,
+      props: true,
     },
     {
       path: "/about-me",
