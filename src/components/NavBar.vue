@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar bg-primary navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar bg-primary navbar-expand-lg bg-body-primary">
     <div class="container-fluid">
       <router-link
         :to="{ name: 'home' }"
@@ -20,13 +20,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <!-- <li class="nav-item">
-            <router-link
-              :to="{ name: 'home' }"
-              class="nav-link text-black text-uppercase"
-              >home</router-link
-            >
-          </li> -->
           <li class="nav-item">
             <router-link
               :to="{ name: 'portfolio' }"
