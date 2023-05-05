@@ -4,6 +4,7 @@ import Home from "./pages/Home.vue";
 import Portfolio from "./pages/Portfolio.vue";
 import ChiSono from "./pages/ChiSono.vue";
 import PortfolioShow from "./pages/Portfolio.show.vue";
+import NotFound from "./pages/404.vue";
 
 const history = createWebHistory();
 console.log("history: ", history);
@@ -31,6 +32,11 @@ const router = createRouter({
       path: "/about-me",
       name: "about-me",
       component: ChiSono,
+    },
+    {
+      path: "/404",
+      name: "404",
+      component: NotFound,
     },
   ],
 });

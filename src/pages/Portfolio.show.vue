@@ -146,7 +146,7 @@ export default {
         })
         .catch((err) => {
           console.log(err);
-          //   this.$router.replace({ name: '404' })
+          this.$router.replace({ name: "404" });
         })
         .finally(() => {
           this.loading = false;
