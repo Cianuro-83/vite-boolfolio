@@ -2,6 +2,7 @@
   <DefaultLayaout>
     <template v-if="loading === false">
       <div class="container">
+        <img v-if="project.cover_image" :src="project.cover_path" alt="" />
         <h1 class="text-center text-uppercase fw-semibold my-5 text-info">
           {{ project.title }}
         </h1>
