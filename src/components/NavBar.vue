@@ -34,6 +34,14 @@
               >chi sono</router-link
             >
           </li>
+
+          <li class="nav-item">
+            <router-link
+              :to="{ name: 'contattami' }"
+              class="nav-link text-black text-uppercase"
+              >contattami</router-link
+            >
+          </li>
         </ul>
       </div>
     </div>
